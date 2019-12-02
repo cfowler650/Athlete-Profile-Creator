@@ -14,18 +14,51 @@
     <link rel="stylesheet" href="app.css">
 
     <title>Athlete Profile Creator</title>
-
 </head>
+
 <body>
-    <div class="main" ng-controller="Controller">
-        <form method="POST" action="/players">
-            <input type="text" name="name" />
-            <input type="submit" />
-        </form>
+
+    <div ng-controller="FormCtrl">
+        <div id="form" ng-controller="SwitchController as switch">
+            <div ng-switch on="switch.current">
+                <div id="stageOne" ng-switch-when="one">
+                    Name : <input ng-model="name" />
+                    <button type="button" class="btn btn-primary" ng-click="switch.stageTwo(name)">
+                        Continue </button>
+                </div>
+
+                <div id="stageTwo" ng-switch-when="two">
+                    Dobd : <input ng-model="dobd" />
+                    <button type="button" class="btn btn-primary" ng-click="switch.stageThree()">
+                        Continue </button>
+                </div>
+
+                <div id="stageThree" ng-switch-when="three">
+                    Dobm : <input ng-model="dobm" />
+                    <button type="button" class="btn btn-primary" ng-click="switch.stageFour()">
+                        Continue </button>
+                </div>
+
+                <div id="stageFour" ng-switch-when="four">
+                    Doby : <input ng-model="doby" />
+                    <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
+                        Continue </button>
+                </div>
+
+                <div id="stageFive" ng-switch-when="five">
+                    <input type="button" value="Send" ng-click="postdata(name, dobd,dobm,doby )" />
+                </div>
+
+            </div>
+        </div>
     </div>
+
 
 <!--ANGULAR-->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-animate.min.js"></script>
+<!-- <script src="./athangular-animate/angular-animate.js"></script> -->
 <script src="index.js"></script>
+
 </body>
 </html>
