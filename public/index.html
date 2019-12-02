@@ -20,32 +20,33 @@
 
     <div ng-controller="FormCtrl">
         <div id="form" ng-controller="SwitchController as switch">
-            <div ng-switch on="switch.current">
-                <div id="stageOne" ng-switch-when="one">
+            <!-- <div ng-switch on="switch.current"> -->
+            <div>
+                <div id="stageOne" ng-show=switch.checkCurrentStageOne()>
                     Name : <input ng-model="name" />
                     <button type="button" class="btn btn-primary" ng-click="switch.stageTwo(name)">
                         Continue </button>
                 </div>
 
-                <div id="stageTwo" ng-switch-when="two">
+                <div id="stageTwo" ng-show=switch.checkCurrentStageTwo()>
                     Dobd : <input ng-model="dobd" />
                     <button type="button" class="btn btn-primary" ng-click="switch.stageThree()">
                         Continue </button>
                 </div>
 
-                <div id="stageThree" ng-switch-when="three">
+                <div id="stageThree" ng-show=switch.checkCurrentStageThree()>
                     Dobm : <input ng-model="dobm" />
                     <button type="button" class="btn btn-primary" ng-click="switch.stageFour()">
                         Continue </button>
                 </div>
 
-                <div id="stageFour" ng-switch-when="four">
+                <div id="stageFour" ng-show=switch.checkCurrentStageFour()>
                     Doby : <input ng-model="doby" />
                     <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
                         Continue </button>
                 </div>
 
-                <div id="stageFive" ng-switch-when="five">
+                <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
                     <input type="button" value="Send" ng-click="postdata(name, dobd,dobm,doby )" />
                 </div>
 
