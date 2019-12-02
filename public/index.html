@@ -18,7 +18,10 @@
 </head>
 <body>
     <div class="main" ng-controller="Controller">
-        {{test}}
+        <form method="POST" action="/players">
+            <input type="text" name="name" />
+            <input type="submit" />
+        </form>
     </div>
 
 <!--ANGULAR-->
