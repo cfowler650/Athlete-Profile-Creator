@@ -49,9 +49,9 @@
                 <div class="form-group">
                     <label class="label label-primary" for="nationality">Select Nationality</label>
                         <div class="input-group-sm">
-                            <select ng-model="nationality" class="custom-select" id="nat-select">
+                            <select ng-options="nat for nat in Nationalities" ng-model="nationality" class="custom-select" id="nat-select">
 
-                                <option value={{$index}} ng-repeat="nat in Nationalities">{{nat}}</option>
+                                <!-- <option ng-repeat="nat in Nationalities" value={{$index}}>{{nat}}</option> -->
                             </select>
                         </div>
                 </div>
@@ -61,10 +61,9 @@
                     <label class="label-default" for="gender">Select Gender</label>
                     <div class="input-group-sm">
                         <select ng-model="gender" class="custom-select" id="gender-select">
-
-                            <option value="1">Male</option>
-                            <option value="2">Female</option>
-                            <option value="2">Other</option>
+                            <option data-text="male">Male</option>
+                            <option data-text="female">Female</option>
+                            <option data-text="other">Other</option>
                         </select>
                     </div>
                 </div>
@@ -109,9 +108,7 @@
                 <div class="form-group">
                     <label class="label-default" for="player-location">Player Location:</label>
                     <div class="input-group-sm">
-                        <select ng-model="location" class="custom-select" id="state-select">
-
-                            <option value={{$index}} ng-repeat="location in Locations">{{location}}</option>
+                        <select ng-options="location for location in Locations" ng-model="location" class="custom-select" id="location-select">
                         </select>
                     </div>
                 </div>
@@ -119,9 +116,7 @@
                 <div class="form-group">
                     <label class="label-default" for="sport">Player Sport:</label>
                     <div class="input-group-sm">
-                        <select ng-model="sports" class="custom-select" id="sport-select">
-
-                            <option value={{$index}} ng-repeat="sport in Sports">{{sport}}</option>
+                        <select ng-options="sport for sport in Sports" ng-model="sports" class="custom-select" id="sport-select">
                         </select>
                     </div>
                 </div>
@@ -131,7 +126,7 @@
                     <div class="input-group-sm">
                         <select ng-model="team" class="custom-select" id="team-select">
 
-                            <option value="1">Populate Based On Sport Selected</option>
+                            <option data-text="Populate Based On Sport Selected">Populate Based On Sport Selected</option>
                         </select>
                     </div>
                 </div>
@@ -197,11 +192,11 @@
                         </div>
                     </div>
 
-                    <li>First Name: interpolated name</li>
-                    <li>Sport: interpolated sport</li>
-                    <li>Nationality: interpolated natonality</li>
-                    <li>Gender: interpolated gender</li>
-                    <li>DOB: interpolated date of birth</li>
+                    <li>First Name: {{name}}</li>
+                    <li>Sport: {{sports}}</li>
+                    <li>Nationality: {{nationality}}</li>
+                    <li>Gender: {{gender}}</li>
+                    <li>Date of Birth: {{dobd}}-{{dobm}}-{{doby}}</li>
 
                     <br></br>
 
@@ -215,9 +210,9 @@
                         </div>
                     </div>
 
-                    <li>Player Description: interpolated description</li>
-                    <li>Player Location: interpolated location</li>
-                    <li>Player Team: interpolated team</li>
+                    <li>Player Description: {{about}}</li>
+                    <li>Player Location: {{location}}</li>
+                    <li>Player Team: {{team}}</li>
 
 
                     <br> </br>
@@ -232,27 +227,23 @@
                                 </div>
                             </div>
 
-                            <li>Twitter: interpolated twitter</li>
-                            <li>Facebook: interpolated facebook</li>
-                            <li>LinkedIn: interpolated linkedIn</li>
-                            <li>Youtube: interpolated youtube</li>
+                            <li>Twitter: {{twitter}}</li>
+                            <li>Facebook: {{facebook}}</li>
+                            <li>LinkedIn: {{linkedin}}</li>
+                            <li>Youtube: {{youtube}}</li>
 
                     <br> </br>
 
                       <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
-                    Continue </button>
+                        <input id="submit-button" type="button" class="btn btn-primary" value="Save Player Profile" ng-click="postdata(name, dobd,dobm,doby,nationality,gender, location,sports, team, about, linkedin, facebook, twitter, youtube )" />
+                      </button>
+
+
                 </div>
             </div>
 
-
-
-
-
-
-
             <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
-                profile submit page
-                <input type="button" value="Send" ng-click="postdata(name, dobd,dobm,doby,nationality,gender, location,sports, team, about, linkedin, facebook, twitter, youtube )" />
+               Show Created Profiles
             </div>
 
         </div>

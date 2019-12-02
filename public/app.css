@@ -9,7 +9,12 @@
 }
 
 button {
-    display: block; margin: 0 auto; width: 100%;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 html {
@@ -25,4 +30,37 @@ li {
 
 .summary {
     font-size: 12px;
+}
+
+#submit-button {
+   display: block;
+   margin: 0 auto;
+   width: 100%;
+   border: none;
+box-shadow: none;
+   outline: none;
+}
+
+#submit-button:hover {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+#submit-button:active {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+#submit-button:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+button:hover, button:active, button:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
 }

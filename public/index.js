@@ -16,17 +16,20 @@ app.controller('FormCtrl', function ($scope, $http) {
         'Czech',
     ];;
 
-    $scope.Locations = ['American',
-        'Australian',
-        'Austrian',
-        'Belarusian',
-        'Brazilian',
-        'British',
-        'Canadian',
-        'Chilean',
-        'Croatian',
-        'Czech',
-    ];;
+    $scope.Locations = ['Alabama',
+        'Alaska',
+        'Arizona',
+        'Arkanas',
+        'California',
+        'Colorado',
+        'Conneticut',
+        'Delaware',
+        'Florida',
+        'Georgia',
+        'Hawaii',
+        'Idaho',
+        'Illinois'
+    ];
 
     $scope.Sports = ['Golf',
         'Tennis',
@@ -62,10 +65,14 @@ app.controller('FormCtrl', function ($scope, $http) {
 
         //Call the services
         $http.post('/players', JSON.stringify(data)).then(function (response) {
+
             if (response.data)
                 $scope.msg = "Post Data Submitted Successfully!";
         })
+
+
     };
+
 
 
 
