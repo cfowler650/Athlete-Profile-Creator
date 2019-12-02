@@ -1,15 +1,26 @@
-//Install express server
 const express = require('express');
-const path = require('path');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const app = express();
+const router = express.Router();
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/public'));
+const mongoURL = `mongodb+srv://guest:guest123@book-app-iw4yw.mongodb.net/test?retryWrites=true&w=majority`;
+mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connection.once('open', () => {
+    console.log('connected to database');
+})
 
-app.get('/*', function (req, res) {
+app.use(express.static('public'));
 
-    res.sendFile(path.join(__dirname + '/index.html'));
+router.get('/api', (request, response) => {
+    response.status(200).send({ message: 'Database connection live' })
 });
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.use(router);
+
+
+const port = 8080;
+
+app.listen(port, () => {
+    console.log(`now listening for requests on port ${port}`);
+});
