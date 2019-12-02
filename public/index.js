@@ -16,22 +16,48 @@ app.controller('FormCtrl', function ($scope, $http) {
         'Czech',
     ];;
 
+    $scope.Locations = ['American',
+        'Australian',
+        'Austrian',
+        'Belarusian',
+        'Brazilian',
+        'British',
+        'Canadian',
+        'Chilean',
+        'Croatian',
+        'Czech',
+    ];;
 
-    $scope.postdata = function (name, dobd,dobm,doby,nationality,gender) {
+    $scope.Sports = ['Golf',
+        'Tennis',
+        'Cricket',
+        'Basketball',
+        'Baseball',
+        'American Football',
+        'Aquatics',
+        'Archery',
+        'Automobile Racing',
+        'Badminton',
+        'Beach Volleyball',
+        'Bobsleigh'
+    ];;
+
+
+    $scope.postdata = function (name, dobd,dobm,doby,nationality,gender,location,sports,team, about, linkedin, facebook, twitter, youtube) {
 
         dob = `${dobd}-${dobm}-${doby}`;
         var data = {
             name: name,
             dob: dob,
             nationality: nationality,
-            // location: location,
-            // team: team,
-            // gender: gender,
-            // sports: sports,
-            // about: about,
-            // linkedin: linkedin,
-            // facebook: facebook,
-            // youtube: youtube
+            gender: gender,
+            location: location,
+            sports: sports,
+            team: team,
+            about: about,
+            linkedin: linkedin,
+            facebook: facebook,
+            youtube: youtube
         };
 
         //Call the services

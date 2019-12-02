@@ -14,13 +14,16 @@ exports.create = (req, res) => {
         nationality: req.body.nationality,
         gender: req.body.gender,
         location: req.body.location,
-        team: req.body.team,
         sports: req.body.sports,
+        team: req.body.team,
         about: req.body.about,
         linkedin: req.body.linkedin,
         facebook: req.body.facebook,
+        twitter: req.body.twitter,
         youtube: req.body.youtube
     });
+
+
 
 
     player.save()
@@ -87,11 +90,12 @@ exports.update = (req, res) => {
         gender: req.body.gender,
         nationality: req.body.nationality,
         location: req.body.location,
-        team: req.body.team,
         sports: req.body.sports,
+        team: req.body.team,
         about: req.body.about,
         linkedin: req.body.linkedin,
         facebook: req.body.facebook,
+        twitter: req.body.twitter,
         youtube: req.body.youtube
     }, { new: true })
         .then(player => {

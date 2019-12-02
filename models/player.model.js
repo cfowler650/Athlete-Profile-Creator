@@ -6,11 +6,12 @@ const PlayerSchema = mongoose.Schema({
     nationality:String,
     gender: String,
     location:String,
+    sports: String,
     team:String,
-    sports:String,
     about:String,
     linkedin: String,
     facebook: String,
+    twitter: String,
     youtube: String
 }, {
     timestamps: true
