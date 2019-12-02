@@ -19,39 +19,96 @@
 <body>
 
     <div ng-controller="FormCtrl">
-        <div id="form" ng-controller="SwitchController as switch">
-            <!-- <div ng-switch on="switch.current"> -->
-            <div>
-                <div id="stageOne" ng-show=switch.checkCurrentStageOne()>
-                    Name : <input ng-model="name" />
-                    <button type="button" class="btn btn-primary" ng-click="switch.stageTwo(name)">
-                        Continue </button>
+        <div id="form" class="form-container jumbotron jumbotron-fluid" ng-controller="SwitchController as switch">
+
+            <!-- BASIC INFO PAGE -->
+            <div id="stageOne" ng-show=switch.checkCurrentStageOne()>
+
+                <!-- PROGRESS BAR -->
+                <div class="progress" style="margin-bottom: 2em;">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">Stage 1</div>
+                    <div class="progress-bar  bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">Stage 2</div>
+                    <div class="progress-bar  bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">Stage 3</div>
+                    <div class="progress-bar  bg-danger" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">Stage 4</div>
                 </div>
 
-                <div id="stageTwo" ng-show=switch.checkCurrentStageTwo()>
-                    Dobd : <input ng-model="dobd" />
-                    <button type="button" class="btn btn-primary" ng-click="switch.stageThree()">
-                        Continue </button>
+                <!-- PAGE TITLE -->
+                <h3 style="text-align: center;">Basic Info</h3>
+
+                <!-- NAME INPUT -->
+                <div class="form-group">
+                    <label class="label-default" for="name">Name</label>
+                    <input type="text" ng-model="name" class="form-control" id="name" placeholder="Enter first and last name here..." />
                 </div>
 
-                <div id="stageThree" ng-show=switch.checkCurrentStageThree()>
-                    Dobm : <input ng-model="dobm" />
-                    <button type="button" class="btn btn-primary" ng-click="switch.stageFour()">
-                        Continue </button>
+                <!-- NATIONALITY INPUT -->
+                <div class="form-group">
+                    <label class="label label-primary" for="nationality">Select Nationality</label>
+                        <div class="input-group-sm">
+                            <select ng-model="nationality" class="custom-select" id="nat-select">
+                                <option selected>Select Nationality...</option>
+                                <option value={{$index}} ng-repeat="nat in Nationalities">{{nat}}</option>
+                            </select>
+                        </div>
                 </div>
 
-                <div id="stageFour" ng-show=switch.checkCurrentStageFour()>
-                    Doby : <input ng-model="doby" />
-                    <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
-                        Continue </button>
+                <!-- GENDER INPUT -->
+                <div class="form-group">
+                    <label class="label-default" for="gender">Select Gender</label>
+                    <div class="input-group-sm">
+                        <select ng-model="gender" class="custom-select" id="gender-select">
+                            <option selected>Select...</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                            <option value="2">Other</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
-                    <input type="button" value="Send" ng-click="postdata(name, dobd,dobm,doby )" />
+                <label class="label-default" for="DOB">Enter Date of Birth (Number):</label>
+                <div class="form-group form-inline">
+                    <div class="input-group">
+                        <input ng-model="dobd" type="text" maxlength="2" aria-label="month" placeholder="Month #" class="form-control">
+                        <input ng-model="dobm" type="text" maxlength="2" aria-label="day" placeholder="Day #" class="form-control">
+                        <input ng-model="doby" type="text" maxlength="4" aria-label="year" placeholder="Year #" class="form-control">
+                    </div>
                 </div>
 
+                <button type="button" class="btn btn-primary" ng-click="switch.stageTwo(name)">
+                    Continue </button>
             </div>
+
+
+            <div id="stageTwo" ng-show=switch.checkCurrentStageTwo()>
+                stage two
+                <button type="button" class="btn btn-primary" ng-click="switch.stageThree()">
+                    Continue </button>
+            </div>
+
+
+            <div id="stageThree" ng-show=switch.checkCurrentStageThree()>
+                stage three
+                <button type="button" class="btn btn-primary" ng-click="switch.stageFour()">
+                    Continue </button>
+            </div>
+
+            <div id="stageFour" ng-show=switch.checkCurrentStageFour()>
+                stage four
+                <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
+                    Continue </button>
+            </div>
+
+            <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
+                profile submit page
+                <input type="button" value="Send" ng-click="postdata(name, dobd,dobm,doby,nationality,gender )" />
+            </div>
+
         </div>
+
     </div>
 
 

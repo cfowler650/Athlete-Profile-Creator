@@ -1,17 +1,29 @@
 var app = angular.module('app', ['ngAnimate']);
-app.controller('Controller', Controller);
 app.controller('SwitchController', SwitchController);
+
+
 app.controller('FormCtrl', function ($scope, $http) {
 
+    $scope.Nationalities = ['American',
+        'Australian',
+        'Austrian',
+        'Belarusian',
+        'Brazilian',
+        'British',
+        'Canadian',
+        'Chilean',
+        'Croatian',
+        'Czech',
+    ];;
 
 
-    $scope.postdata = function (name, dobd,dobm,doby) {
+    $scope.postdata = function (name, dobd,dobm,doby,nationality,gender) {
+
         dob = `${dobd}-${dobm}-${doby}`;
         var data = {
             name: name,
             dob: dob,
-
-            // nationality: nationality,
+            nationality: nationality,
             // location: location,
             // team: team,
             // gender: gender,
@@ -29,16 +41,14 @@ app.controller('FormCtrl', function ($scope, $http) {
         })
     };
 
+
+
 });
 
-function Controller($scope){
-    $scope.test = 'angular connected'
-}
+
 
 
 function SwitchController() {
-
-
     var stage = this;
     stage.current = "one";
     stage.stageOne = stageOne;
