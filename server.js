@@ -5,7 +5,7 @@ const app = express();
 const router = express.Router();
 
 const mongoURL = `mongodb+srv://guest:guest123@book-app-iw4yw.mongodb.net/test?retryWrites=true&w=majority`;
-mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log('connected to database');
 })
@@ -18,9 +18,6 @@ router.get('/api', (request, response) => {
 
 app.use(router);
 
-
-const port = 8080;
-
-app.listen(port, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log(`now listening for requests on port ${port}`);
 });
