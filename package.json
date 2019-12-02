@@ -4,8 +4,17 @@
   "description": "Athlete Profile Input Form ",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Caleb Fowler",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.13"
+  },
+  "engines": {
+      "node": "10.13.0",
+      "npm": "6.9.0"
+  }
 }
