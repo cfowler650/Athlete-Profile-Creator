@@ -5,7 +5,7 @@ const app = express();
 const router = express.Router();
 
 const mongoURL = `mongodb+srv://guest:guest123@book-app-iw4yw.mongodb.net/test?retryWrites=true&w=majority`;
-mongoose.connect(process.env.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log('connected to database');
 })
