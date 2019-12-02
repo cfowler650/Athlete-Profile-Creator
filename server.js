@@ -18,6 +18,7 @@ router.get('/api', (request, response) => {
 
 app.use(router);
 
+//listen
 app.listen(process.env.PORT || 8080, () => {
     console.log(`now listening for requests on port`);
 });
