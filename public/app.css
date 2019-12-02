@@ -16,3 +16,13 @@ html {
     font-family: 'Roboto', sans-serif;
 
 }
+
+
+li {
+    list-style: none;
+}
+
+
+.summary {
+    font-size: 12px;
+}

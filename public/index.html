@@ -184,10 +184,71 @@
 
             <!--SUMMARY STAGE-->
             <div id="stageFour" ng-show=switch.checkCurrentStageFour()>
-                stage four
-                <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
+                <div class="summary">
+                    <h3 style="text-align: center;">Summary</h3>
+
+                    <div class="row">
+                        <div class="col-7">
+                            <p class="h6">Basic Info:</p>
+                        </div>
+
+                        <div class="col-5" style="text-align: right">
+                            <button class="btn btn-light btn-sm" ng-click="switch.stageOne()"  style="width: 40%"">Edit</button>
+                        </div>
+                    </div>
+
+                    <li>First Name: interpolated name</li>
+                    <li>Sport: interpolated sport</li>
+                    <li>Nationality: interpolated natonality</li>
+                    <li>Gender: interpolated gender</li>
+                    <li>DOB: interpolated date of birth</li>
+
+                    <br></br>
+
+                    <div class=" row">
+                        <div class="col-7">
+                            <p class="h6">About:</p>
+                        </div>
+
+                        <div class="col-5" style="text-align: right">
+                            <button class="btn btn-light btn-sm" ng-click="switch.stageTwo()" style="width: 40%"">Edit</button>
+                        </div>
+                    </div>
+
+                    <li>Player Description: interpolated description</li>
+                    <li>Player Location: interpolated location</li>
+                    <li>Player Team: interpolated team</li>
+
+
+                    <br> </br>
+
+                            <div class=" row">
+                                <div class="col-7">
+                                    <p class="h6">Social Media Handles:</p>
+                                </div>
+
+                                <div class="col-5" style="text-align: right">
+                                    <button class="btn btn-light btn-sm" ng-click="switch.stageThree()" style="width: 40%"">Edit</button>
+                                </div>
+                            </div>
+
+                            <li>Twitter: interpolated twitter</li>
+                            <li>Facebook: interpolated facebook</li>
+                            <li>LinkedIn: interpolated linkedIn</li>
+                            <li>Youtube: interpolated youtube</li>
+
+                    <br> </br>
+
+                      <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
                     Continue </button>
+                </div>
             </div>
+
+
+
+
+
+
 
             <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
                 profile submit page
