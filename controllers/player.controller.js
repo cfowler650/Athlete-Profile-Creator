@@ -24,8 +24,6 @@ exports.create = (req, res) => {
     });
 
 
-
-
     player.save()
         .then(data => {
             res.send(data);
@@ -35,7 +33,6 @@ exports.create = (req, res) => {
             });
         });
 };
-
 
 
 // Retrieve and return all players from the database.
