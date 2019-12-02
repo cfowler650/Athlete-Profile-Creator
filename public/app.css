@@ -11,7 +11,7 @@
 button {
     display: block;
     margin: 0 auto;
-    width: 100%;
+        width: 100%;
     border: none;
     box-shadow: none;
     outline: none;
@@ -37,7 +37,7 @@ li {
    margin: 0 auto;
    width: 100%;
    border: none;
-box-shadow: none;
+   box-shadow: none;
    outline: none;
 }
 

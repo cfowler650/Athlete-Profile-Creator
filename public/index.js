@@ -1,6 +1,90 @@
 var app = angular.module('app', ['ngAnimate']);
-app.controller('SwitchController', SwitchController);
+app.controller('SwitchController', function ($scope, $http){
+    var stage = this;
+    stage.current = "one";
+    stage.stageOne = stageOne;
+    stage.stageTwo = stageTwo;
+    stage.stageThree = stageThree;
+    stage.stageFour = stageFour;
+    stage.stageFive = stageFive;
+    stage.checkCurrentStageOne = checkCurrentStageOne;
+    stage.checkCurrentStageTwo = checkCurrentStageTwo;
+    stage.checkCurrentStageThree = checkCurrentStageThree;
+    stage.checkCurrentStageFour = checkCurrentStageFour;
+    stage.checkCurrentStageFive = checkCurrentStageFive;
+    stage.test = test;
+    stage.allPlayers = "none";
 
+    function checkCurrentStageOne() {
+       if (stage.current === "one"){
+           return true;
+       } else {
+           return false;
+       }
+    }
+
+    function checkCurrentStageTwo() {
+        if (stage.current === "two") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkCurrentStageThree() {
+        if (stage.current === "three") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkCurrentStageFour() {
+        if (stage.current === "four") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkCurrentStageFive() {
+
+        if (stage.current === "five") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    function stageOne() {
+        stage.current = "one";
+
+    }
+
+    function stageTwo() {
+        stage.current = "two";
+    }
+
+    function stageThree() {
+        stage.current = "three";
+    }
+
+    function stageFour() {
+        stage.current = "four";
+    }
+
+    function stageFive() {
+        stage.current = "five";
+    }
+
+    function test(){
+        console.log('ive loaded')
+    }
+
+
+
+});
 
 app.controller('FormCtrl', function ($scope, $http) {
 
@@ -64,12 +148,11 @@ app.controller('FormCtrl', function ($scope, $http) {
         };
 
         //Call the services
-        $http.post('/players', JSON.stringify(data)).then(function (response) {
+            $http.post('/players', JSON.stringify(data)).then(function (response) {
 
-            if (response.data)
-                $scope.msg = "Post Data Submitted Successfully!";
-        })
-
+                if (response.data)
+                    $scope.msg = "Post Data Submitted Successfully!";
+            })
 
     };
 
@@ -81,82 +164,95 @@ app.controller('FormCtrl', function ($scope, $http) {
 
 
 
-function SwitchController() {
-    var stage = this;
-    stage.current = "one";
-    stage.stageOne = stageOne;
-    stage.stageTwo = stageTwo;
-    stage.stageThree = stageThree;
-    stage.stageFour = stageFour;
-    stage.stageFive = stageFive;
-    stage.checkCurrentStageOne = checkCurrentStageOne;
-    stage.checkCurrentStageTwo = checkCurrentStageTwo;
-    stage.checkCurrentStageThree = checkCurrentStageThree;
-    stage.checkCurrentStageFour = checkCurrentStageFour;
-    stage.checkCurrentStageFive = checkCurrentStageFive;
+// function SwitchController() {
+//     var stage = this;
+//     stage.current = "one";
+//     stage.stageOne = stageOne;
+//     stage.stageTwo = stageTwo;
+//     stage.stageThree = stageThree;
+//     stage.stageFour = stageFour;
+//     stage.stageFive = stageFive;
+//     stage.checkCurrentStageOne = checkCurrentStageOne;
+//     stage.checkCurrentStageTwo = checkCurrentStageTwo;
+//     stage.checkCurrentStageThree = checkCurrentStageThree;
+//     stage.checkCurrentStageFour = checkCurrentStageFour;
+//     stage.checkCurrentStageFive = checkCurrentStageFive;
+//     stage.test = test;
+//     stage.allPlayers = "none";
 
-    function checkCurrentStageOne() {
-       if (stage.current === "one"){
-           return true;
-       } else {
-           return false;
-       }
-    }
+//     function checkCurrentStageOne() {
+//        if (stage.current === "one"){
+//            return true;
+//        } else {
+//            return false;
+//        }
+//     }
 
-    function checkCurrentStageTwo() {
-        if (stage.current === "two") {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//     function checkCurrentStageTwo() {
+//         if (stage.current === "two") {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
 
-    function checkCurrentStageThree() {
-        if (stage.current === "three") {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//     function checkCurrentStageThree() {
+//         if (stage.current === "three") {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
 
-    function checkCurrentStageFour() {
-        if (stage.current === "four") {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//     function checkCurrentStageFour() {
+//         if (stage.current === "four") {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
 
-    function checkCurrentStageFive() {
-        if (stage.current === "five") {
-            return true;
-        } else {
-            return false;
-        }
-    }
+//     function checkCurrentStageFive() {
+//         if (stage.current === "five") {
+
+//               $http.get('/players', JSON.stringify(data)).then(function (response) {
+
+//                 if (response.data)
+//                  stage.allPlayers = "Post Data Submitted Successfully!";
+//              })
+
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
 
 
-    function stageOne() {
-        stage.current = "one";
+//     function stageOne() {
+//         stage.current = "one";
 
-    }
+//     }
 
-    function stageTwo() {
-        stage.current = "two";
-    }
+//     function stageTwo() {
+//         stage.current = "two";
+//     }
 
-    function stageThree() {
-        stage.current = "three";
-    }
+//     function stageThree() {
+//         stage.current = "three";
+//     }
 
-    function stageFour() {
-        stage.current = "four";
-    }
+//     function stageFour() {
+//         stage.current = "four";
+//     }
 
-    function stageFive() {
-        stage.current = "five";
-    }
-}
+//     function stageFive() {
+//         stage.current = "five";
+//     }
+
+//     function test(){
+//         console.log('ive loaded')
+//     }
+// }
 
 
 

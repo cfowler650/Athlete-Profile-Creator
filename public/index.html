@@ -85,6 +85,7 @@
 
             <!--ABOUT STAGE -->
             <div id="stageTwo" ng-show=switch.checkCurrentStageTwo()>
+                <!-- PROGRESS BAR -->
                 <div class="progress" style="margin-bottom: 2em;">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
                         aria-valuemax="100">Stage 1</div>
@@ -96,7 +97,10 @@
                         aria-valuemax="100">Stage 4</div>
                 </div>
 
+                <!--PAGE TITLE-->
                 <h3 style="text-align: center;">About</h3>
+
+                <!--PLAYER DESCRIPTION INPUT-->
                 <div class="form-group">
                     <label class="label-default" for="player-description">Player Description:</label>
                     <div class="input-group">
@@ -104,7 +108,7 @@
                     </div>
                 </div>
 
-
+                <!--PLAYER LOCATION INPUT-->
                 <div class="form-group">
                     <label class="label-default" for="player-location">Player Location:</label>
                     <div class="input-group-sm">
@@ -113,6 +117,7 @@
                     </div>
                 </div>
 
+                 <!--PLAYER SPORT INPUT-->
                 <div class="form-group">
                     <label class="label-default" for="sport">Player Sport:</label>
                     <div class="input-group-sm">
@@ -121,11 +126,11 @@
                     </div>
                 </div>
 
+                <!--PLAYER TEAM INPUT-->
                 <div class="form-group">
                     <label class="label-default" for="team">Player Team:</label>
                     <div class="input-group-sm">
                         <select ng-model="team" class="custom-select" id="team-select">
-
                             <option data-text="Populate Based On Sport Selected">Populate Based On Sport Selected</option>
                         </select>
                     </div>
@@ -139,6 +144,7 @@
             <!--SOCIAL MEDIA HANDLES STAGE -->
 
             <div id="stageThree" ng-show=switch.checkCurrentStageThree()>
+                 <!--PROGRESS BAR-->
                 <div class="progress" style="margin-bottom: 2em;">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0"
                         aria-valuemax="100">Stage 1</div>
@@ -150,28 +156,32 @@
                         aria-valuemax="100">Stage 4</div>
                 </div>
 
-
+                 <!--PAGE TITLE-->
                 <h3 style="text-align: center;">Social Media Handles</h3>
-                 <div class="form-group">
+
+                 <!--LINKEDIN INPUT-->
+                <div class="form-group">
                     <label class="label-default" for="linked-in-handle">LinkedIn</label>
                     <input ng-model="linkedin" type="text" class="form-control" id="linkedin" placeholder="Enter here..." />
                 </div>
 
+                <!--FACEBOOK INPUT-->
                 <div class="form-group">
                     <label class="label-default" for="facebook-handle">Facebook</label>
                     <input ng-model="facebook" type="text" class="form-control" id="facebook" placeholder="Enter here..." />
                 </div>
 
+                <!--TWITTER INPUT-->
                 <div class="form-group">
                     <label class="label-default" for="twitter-handle">Twitter</label>
                     <input ng-model="twitter" type="text" class="form-control" id="twitter" placeholder="Enter here..." />
                 </div>
 
+                <!--YOUTUBE INPUT-->
                 <div class="form-group">
                     <label class="label-default" for="youtube-handle">Youtube</label>
                     <input ng-model="youtube" type="text" class="form-control" id="youtube" placeholder="Enter here..." />
                 </div>
-
 
                 <button type="button" class="btn btn-primary" ng-click="switch.stageFour()">
                     Continue </button>
@@ -180,8 +190,10 @@
             <!--SUMMARY STAGE-->
             <div id="stageFour" ng-show=switch.checkCurrentStageFour()>
                 <div class="summary">
+                    <!--PAGE TITLE-->
                     <h3 style="text-align: center;">Summary</h3>
 
+                    <!--BASIC INFO SUMMARY-->
                     <div class="row">
                         <div class="col-7">
                             <p class="h6">Basic Info:</p>
@@ -200,6 +212,7 @@
 
                     <br></br>
 
+                    <!--ABOUT PAGE SUMMARY-->
                     <div class=" row">
                         <div class="col-7">
                             <p class="h6">About:</p>
@@ -214,37 +227,45 @@
                     <li>Player Location: {{location}}</li>
                     <li>Player Team: {{team}}</li>
 
+                    <br> </br>
+
+                    <!--SOCIAL MEDIA PAGE SUMMARY-->
+
+                    <div class=" row">
+                        <div class="col-7">
+                            <p class="h6">Social Media Handles:</p>
+                        </div>
+
+                        <div class="col-5" style="text-align: right">
+                            <button class="btn btn-light btn-sm" ng-click="switch.stageThree()" style="width: 40%"">Edit</button>
+                        </div>
+                    </div>
+
+                    <li>Twitter: {{twitter}}</li>
+                    <li>Facebook: {{facebook}}</li>
+                    <li>LinkedIn: {{linkedin}}</li>
+                    <li>Youtube: {{youtube}}</li>
 
                     <br> </br>
 
-                            <div class=" row">
-                                <div class="col-7">
-                                    <p class="h6">Social Media Handles:</p>
-                                </div>
-
-                                <div class="col-5" style="text-align: right">
-                                    <button class="btn btn-light btn-sm" ng-click="switch.stageThree()" style="width: 40%"">Edit</button>
-                                </div>
-                            </div>
-
-                            <li>Twitter: {{twitter}}</li>
-                            <li>Facebook: {{facebook}}</li>
-                            <li>LinkedIn: {{linkedin}}</li>
-                            <li>Youtube: {{youtube}}</li>
-
-                    <br> </br>
-
-                      <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
-                        <input id="submit-button" type="button" class="btn btn-primary" value="Save Player Profile" ng-click="postdata(name, dobd,dobm,doby,nationality,gender, location,sports, team, about, linkedin, facebook, twitter, youtube )" />
-                      </button>
-
+                    <!--SUBMIT BUTTON AND REDIRECT TO ALL PLAYER PROFILES-->
+                    <button type="button" class="btn btn-primary" ng-click="switch.stageFive()">
+                         <input id="submit-button" type="button" class="btn btn-primary" value="Save Player Profile" ng-click="postdata(name, dobd,dobm,doby,nationality,gender, location,sports, team, about, linkedin, facebook, twitter, youtube )" />
+                    </button>
 
                 </div>
             </div>
 
+            <!--VIEW CREATED PROFILES PAGE-->
             <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
-               Show Created Profiles
+                 <!--PAGE TITLE-->
+                <h3 style="text-align: center;">All Player Profiles</h3>
+                <div>
+                   {{switch.allPlayers}}
+                </div>
+
             </div>
+
 
         </div>
 
