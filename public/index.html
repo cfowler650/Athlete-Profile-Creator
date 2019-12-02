@@ -18,7 +18,7 @@
 
 <body>
 
-    <div ng-controller="FormCtrl">
+    <div ng-controller="FormCtrl" style="width: 50%;">
         <div id="form" class="form-container jumbotron jumbotron-fluid" ng-controller="SwitchController as switch">
 
             <!-- BASIC INFO PAGE -->
@@ -259,9 +259,20 @@
             <!--VIEW CREATED PROFILES PAGE-->
             <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
                  <!--PAGE TITLE-->
-                <h3 style="text-align: center;">All Player Profiles</h3>
+
                 <div>
-                   {{switch.allPlayers}}
+                    <div><h3 style="text-align: center; padding-bottom: 20px;">All Player Profiles</h3></div>
+                    <div class="cards-container">
+                            <div ng-repeat="player in allPlayers" class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Name:{{player.name}}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">Sport: {{player.sports}}</h6>
+                                        <p class="card-text">Description: {{player.about}}</p>
+                                        <p class="card-text">DOB: {{player.dob}}</a>
+                                        <p class="card-text">Location: {{player.location}}</a>
+                                    </div>
+                            </div>
+                    </div>
                 </div>
 
             </div>

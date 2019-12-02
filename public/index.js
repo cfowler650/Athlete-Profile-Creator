@@ -13,7 +13,7 @@ app.controller('SwitchController', function ($scope, $http){
     stage.checkCurrentStageFour = checkCurrentStageFour;
     stage.checkCurrentStageFive = checkCurrentStageFive;
     stage.test = test;
-    stage.allPlayers = "none";
+
 
     function checkCurrentStageOne() {
        if (stage.current === "one"){
@@ -129,6 +129,7 @@ app.controller('FormCtrl', function ($scope, $http) {
         'Bobsleigh'
     ];;
 
+    $scope.allPlayers = "not loaded";
 
     $scope.postdata = function (name, dobd,dobm,doby,nationality,gender,location,sports,team, about, linkedin, facebook, twitter, youtube) {
 
@@ -151,13 +152,20 @@ app.controller('FormCtrl', function ($scope, $http) {
             $http.post('/players', JSON.stringify(data)).then(function (response) {
 
                 if (response.data)
-                    $scope.msg = "Post Data Submitted Successfully!";
+                  console.log('success');
             })
 
+
+            setTimeout(() => {
+                    $http.get('/players').then(function (response) {
+
+                    if (response)
+                        $scope.allPlayers = response.data;
+                        console.log($scope.allPlayers);
+                })
+            }, 1000);
+
     };
-
-
-
 
 });
 

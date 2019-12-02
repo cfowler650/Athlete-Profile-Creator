@@ -1,11 +1,9 @@
 .form-container {
     font-family: 'Roboto', sans-serif;
-    position: fixed;
-    width: 50%;
+
+    width: 100%;
     padding: 2em;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -30%);
+
 }
 
 button {
@@ -25,7 +23,21 @@ html {
 
 li {
     list-style: none;
+
 }
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.cards-container {
+        display: flex;
+
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 .summary {
