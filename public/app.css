@@ -31,6 +31,13 @@ body {
     justify-content: center;
 }
 
+.btn-group-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+
 .cards-container {
         display: flex;
 

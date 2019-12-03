@@ -78,9 +78,12 @@
                     </div>
                 </div>
 
-                <!--NEXT STAGE BUTTON -->
+
                 <button type="button" class="btn btn-primary" ng-click="switch.stageTwo(name)">
                     Continue </button>
+                 <!--NEXT STAGE BUTTON -->
+
+
             </div>
 
             <!--ABOUT STAGE -->
@@ -136,8 +139,14 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary" ng-click="switch.stageThree()">
-                    Continue </button>
+                <div class="btn-group-container">
+                    <div class="btn-group" style="width: 100%;"role="group">
+                          <button type="button" class="btn btn-secondary" ng-click="switch.stageOne()">
+                        Previous </button>
+                        <button type="button" class="btn btn-primary " ng-click="switch.stageThree()">
+                            Continue </button>
+                    </div>
+                </div>
             </div>
 
 
@@ -183,14 +192,33 @@
                     <input ng-model="youtube" type="text" class="form-control" id="youtube" placeholder="Enter here..." />
                 </div>
 
-                <button type="button" class="btn btn-primary" ng-click="switch.stageFour()">
-                    Continue </button>
+                <!-- <button type="button" class="btn btn-primary" ng-click="switch.stageFour()">
+                    Continue </button> -->
+
+                     <div class="btn-group-container">
+                    <div class="btn-group" style="width: 100%;"role="group">
+                          <button type="button" class="btn btn-secondary" ng-click="switch.stageThree()">
+                        Previous </button>
+                        <button type="button" class="btn btn-primary " ng-click="switch.stageFour()">
+                            Continue </button>
+                    </div>
+                </div>
             </div>
 
             <!--SUMMARY STAGE-->
             <div id="stageFour" ng-show=switch.checkCurrentStageFour()>
                 <div class="summary">
                     <!--PAGE TITLE-->
+                    <div class="progress" style="margin-bottom: 2em;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%;"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Stage 1</div>
+                        <div class="progress-bar bg-success " role="progressbar" style="width: 25%;"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Stage 2</div>
+                        <div class="progress-bar bg-success  " role="progressbar" style="width: 25%;"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Stage 3</div>
+                        <div class="progress-bar  " role="progressbar" style="width: 25%;"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Stage 4</div>
+                    </div>
                     <h3 style="text-align: center;">Summary</h3>
 
                     <!--BASIC INFO SUMMARY-->
@@ -258,7 +286,11 @@
 
             <!--VIEW CREATED PROFILES PAGE-->
             <div id="stageFive" ng-show=switch.checkCurrentStageFive()>
-                 <!--PAGE TITLE-->
+
+                <div class="progress" style="margin-bottom: 2em;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0"
+                        aria-valuemax="100">Player Profile Created</div>
+                </div>
 
                 <div>
                     <div><h3 style="text-align: center; padding-bottom: 20px;">All Player Profiles</h3></div>
